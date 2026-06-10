@@ -1,0 +1,72 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "PANDA KEY",
+  "version": "../package.json",
+  "identifier": "com.pandaa2.pandakey",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:3000",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../out"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "PANDA KEY",
+        "width": 1100,
+        "height": 760,
+        "minWidth": 880,
+        "minHeight": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": true,
+        "transparent": false,
+        "alwaysOnTop": false,
+        "center": true,
+        "dragDropEnabled": false,
+        "visible": true
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IEM3NkNDRTNEODA4MjM3QkUKUldTK040S0FQYzVzeDBObWVNbHQ4ejE0b0E5a2RES29zYjJrRk5tQjA5ajNFL2pkOGJYRXpENEYK",
+      "endpoints": [
+        "https://github.com/ohjae-88/PanDaA2Key/releases/latest/download/latest.json"
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["nsis"],
+    "createUpdaterArtifacts": true,
+    "resources": {
+      "../driver/interception.dll": "./",
+      "../driver/install-interception.exe": "./",
+      "tools/PresentMon.exe": "./"
+    },
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "category": "Utility",
+    "shortDescription": "PANDA KEY — 매크로 키 입력 프로그램",
+    "longDescription": "키보드·마우스 키 입력(누르기/때기) 매크로. 다중 세트 + 트리거 기반 혼합 실행.",
+    "windows": {
+      "nsis": {
+        "installerIcon": "icons/icon.ico",
+        "displayLanguageSelector": false,
+        "languages": ["Korean", "English"],
+        "installMode": "perMachine",
+        "installerHooks": "installer.nsh"
+      }
+    }
+  }
+}

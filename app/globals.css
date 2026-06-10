@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 14% 8%;
+    --foreground: 0 0% 96%;
+    --card: 222 12% 11%;
+    --card-foreground: 0 0% 96%;
+    --popover: 222 12% 11%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 38 95% 60%;
+    --primary-foreground: 0 0% 8%;
+    --secondary: 222 10% 18%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 222 10% 18%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 38 95% 60%;
+    --accent-foreground: 0 0% 8%;
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 222 10% 22%;
+    --input: 222 10% 18%;
+    --ring: 38 95% 60%;
+    --radius: 0.625rem;
+
+    /* AION2 카테고리 색상 */
+    --cat-barrack:  214 100% 67%;   /* 파랑 */
+    --cat-party:    265 100% 71%;   /* 보라 */
+    --cat-arcana:   33 100% 65%;    /* 주황 */
+    --cat-notifier: 0 100% 73%;     /* 코랄 */
+    --cat-macro:    152 65% 55%;    /* 민트 — 매크로 */
+    --gold:         38 95% 60%;
+    --gold-light:   42 87% 70%;
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 222 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 20% 15%;
+    --primary: 33 95% 45%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 95%;
+    --secondary-foreground: 222 20% 15%;
+    --muted: 220 14% 95%;
+    --muted-foreground: 220 10% 40%;
+    --accent: 33 95% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 14% 88%;
+    --input: 220 14% 92%;
+    --ring: 33 95% 45%;
+
+    --cat-barrack:  214 70% 40%;
+    --cat-party:    265 60% 40%;
+    --cat-arcana:   33 75% 35%;
+    --cat-notifier: 0 60% 45%;
+    --cat-macro:    152 55% 35%;
+    --gold:         33 75% 35%;
+    --gold-light:   33 75% 30%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; font-feature-settings: "rlig" 1, "calt" 1; }
+}
+
+@layer utilities {
+  .tabular-nums { font-variant-numeric: tabular-nums; }
+  /* 알람 활성 카드 — 노란 강조 반복 펄스 */
+  @keyframes alarm-pulse-kf {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7);
+      background-color: rgba(251, 191, 36, 0.15);
+    }
+    50% {
+      box-shadow: 0 0 0 6px rgba(251, 191, 36, 0);
+      background-color: rgba(251, 191, 36, 0.35);
+    }
+  }
+  .alarm-pulse {
+    animation: alarm-pulse-kf 1s ease-in-out infinite;
+  }
+}

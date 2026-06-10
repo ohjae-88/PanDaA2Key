@@ -1,0 +1,35 @@
+# Node / Next
+node_modules
+.next
+out
+.env*.local
+*.log
+.DS_Store
+
+# TypeScript
+tsconfig.tsbuildinfo
+tsc-out.txt
+build-out.txt
+
+# Rust / Tauri
+src-tauri/target
+src-tauri/gen
+
+# 빌드 시 driver 폴더에서 복사되는 번들 스테이징 산출물 (빌드.bat)
+src-tauri/interception.dll
+src-tauri/install-interception.exe
+
+# 서명 키 — 절대 커밋 금지 (실수 방지)
+*.key
+*.key.pub
+.tauri/
+*.pem
+
+# 사용자 데이터 / 세이브
+세이브파일/
+diag/
+
+# 에디터
+.vscode/
+.idea/
+*.swp
