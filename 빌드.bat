@@ -17,8 +17,9 @@ where cargo >nul 2>nul
 if errorlevel 1 goto :no_rust
 
 rem -- Updater signing key (required for updater artifacts) --
+rem    TAURI_SIGNING_PRIVATE_KEY accepts a file path or the key content.
 if not exist "%USERPROFILE%\.tauri\pandaa2key.key" goto :no_signkey
-set "TAURI_SIGNING_PRIVATE_KEY_PATH=%USERPROFILE%\.tauri\pandaa2key.key"
+set "TAURI_SIGNING_PRIVATE_KEY=%USERPROFILE%\.tauri\pandaa2key.key"
 set "TAURI_SIGNING_PRIVATE_KEY_PASSWORD="
 
 if not exist "node_modules\" goto :install
